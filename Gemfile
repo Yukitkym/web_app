@@ -24,6 +24,10 @@ gem 'therubyracer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+# JQueryを追加
+gem 'jquery-rails',            '4.3.1'
+# Tubolinksを追加
+gem 'turbolinks',              '5.0.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # group testから外に出した
