@@ -9,6 +9,13 @@ end
 gem 'rails', '~> 5.1.1'
 # パスワードをハッシュ化するために追加
 gem 'bcrypt', '~> 3.1.11'
+# fakerを追加
+gem 'faker',          '1.7.3'
+# will_paginateを追加
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
+# group testから外した
+gem 'rails-controller-testing', '1.0.2'
 # bootstrapを追加
 gem 'bootstrap-sass', '3.3.7'
 # Use mysql as the database for Active Record
@@ -30,8 +37,7 @@ gem 'jquery-rails',            '4.3.1'
 gem 'turbolinks',              '5.0.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# group testから外に出した
-gem 'rails-controller-testing', '1.0.2'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
