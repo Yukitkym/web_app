@@ -1,9 +1,10 @@
 require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
- def setup
+  def setup
     @user = users(:michael)
-    @post = @user.posts.build(content: "Lorem ipsum")
+    image_path = File.join(Rails.root, "test/fixtures/kitten.jpg")
+    @post = @user.posts.build(content: "Lorem ipsum", picture: File.new(image_path))
   end
 
   test "should be valid" do
@@ -20,12 +21,17 @@ class PostTest < ActiveSupport::TestCase
     assert_not @post.valid?
   end
 
-  test "content should be at most 30 characters" do
-    @post.content = "a" * 31
+  test "content should be at most 15 characters" do
+    @post.content = "a" * 16
     assert_not @post.valid?
   end
 
   test "order should be most recent first" do
     assert_equal posts(:most_recent), Post.first
+  end
+
+  test "picture should be present" do
+    @post.picture = nil
+    assert_not @post.valid?
   end
 end

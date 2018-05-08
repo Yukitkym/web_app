@@ -28,4 +28,10 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
   end
+
+  test "should get show" do
+    get post_path(Post.first)
+    assert_response :success
+  end
+
 end

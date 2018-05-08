@@ -12,13 +12,15 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     get newpost_path
     assert_select 'input[type="file"]'
     # 無効な送信
+    picture = fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpg')
     assert_no_difference 'Post.count' do
-      post newpost_path, params: { post: { content: "" } }
+      post newpost_path, params: { post: { content: "", picture: picture } }
+      post newpost_path, params: { post: { content: "Hello, World" } }
     end
     assert_select 'div#error_explanation'
     # 有効な送信
-    content = "This post really ties"
-    picture = fixture_file_upload('test/fixtures/rails.png', 'image/png')
+    content = "Really ties"
+    picture = fixture_file_upload('test/fixtures/kitten.jpg', 'image/jpg')
     assert_difference 'Post.count', 1 do
       post newpost_path, params: { post: { content: content, picture: picture } }
     end
