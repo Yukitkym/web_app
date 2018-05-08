@@ -11,6 +11,10 @@ gem 'rails', '~> 5.1.1'
 gem 'bcrypt', '~> 3.1.11'
 # fakerを追加
 gem 'faker',          '1.7.3'
+# 画像アップローダーを追加
+gem 'carrierwave',             '1.2.2'
+# 画像をリサイズするgemを追加
+gem 'mini_magick',             '4.7.0'
 # will_paginateを追加
 gem 'will_paginate',           '3.1.6'
 gem 'bootstrap-will_paginate', '1.0.0'
@@ -68,6 +72,8 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+  # 本番環境で画像をアップロードするためのgemを追加
+  gem 'fog', '1.42'
 end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

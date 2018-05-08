@@ -1,19 +1,30 @@
 <main class="page_content">			
-	<div id="mainVisual" class="first_view_container">
-		<div class="cover main">
-			<div class="filter">
-				<div class="caption">
-					<div class="lead_ja">あなたの行きたい場所がそこにある</div>
-					<div class="lead_en">You want to travel there.</div>
-					<a href="/about/" class="btn_invert">CONCEPT</a>
-				</div>
-				
-			</div>
-		</div>
-	</div>
-	<div>
-		<h2>Photo一覧</h2>
-	</div>
+  <div id="mainVisual" class="first_view_container">
+  	<div class="cover main">
+  	  <div class="filter">
+  	  	<div class="caption">
+  	  	  <div class="lead_ja">あなたの行きたい場所がそこにある</div>
+  	  	  <div class="lead_en">You want to travel there.</div>
+  	  	  <a href="/about/" class="btn_invert">CONCEPT</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+  	<h2>Photo一覧</h2>
+    <ul class="posts">
+      <% @posts.each do |post| %>
+        <li>
+          <%= link_to gravatar_for(post.user, size: 50), post.user %>
+          <span class="user"><%= link_to post.user.name, post.user %></span>
+          <span class="content"><%= post.content %></span>
+          <span class="timestamp">
+            Posted <%= time_ago_in_words(post.created_at) %> ago.
+          </span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
 
 </main>
