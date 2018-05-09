@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user,     only: [:destroy]
 
 
   def index
-    @users = User.where(activated: true).paginate(page: params[:page])
+    if current_user.admin
+      @users = User.where(activated: true).paginate(page: params[:page])
+    else
+      flash[:danger] = "管理者でないとアクセスできません"
+      redirect_to root_url
+    end
   end
 
   def show

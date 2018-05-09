@@ -69,4 +69,25 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to root_url
   end
+
+  test "should logout when get my user page" do
+    log_in_as(@other_user)
+    get user_path(@other_user)
+    assert_select "a[href=?]", logout_path
+    get user_path(@user)
+    assert_select "a[href=?]", logout_path, count: 0
+  end
+
+  test "should get users_path admin user" do
+    log_in_as(@user)
+    get users_path
+    assert_response :success
+  end
+
+  test "should not get users_path not admin user" do
+    log_in_as(@other_user)
+    get users_path
+    assert_not flash.empty?
+    assert_redirected_to root_url
+  end
 end

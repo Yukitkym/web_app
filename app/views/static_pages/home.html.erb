@@ -28,11 +28,12 @@
                 </div>
                 <div class="scroll_item_info">
                   <div class="scroll_item_ttl">
-                    <span class="content"><%= post.content %></span>
+                    <span class="content"><%= link_to post.content, post_path(id: post.id), class: "post-content" %></span>
                   </div>
-                  <span class="place"><%= post.place %></span>
                   <%= link_to gravatar_for(post.user, size: 40), post.user %>
-                  <span class="user"><%= link_to post.user.name, post.user %></span>
+                  <span class="place"><%= link_to "place: " + post.place, post_path(id: post.id), class: "post-place" %></span>
+                  <br>
+                  <span class="user"><%= link_to "user_name: " + post.user.name, post.user, class: "post-user" %></span>
                   <br>
                   <span class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
                 </div>

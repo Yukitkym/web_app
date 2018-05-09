@@ -40,8 +40,8 @@ class PostsInterfaceTest < ActionDispatch::IntegrationTest
     assert_difference 'Post.count', -1 do
       delete post_path(first_post)
     end
-    # 違うユーザーのプロフィールにアクセス (削除リンクがないことを確認)
-    get user_path(users(:archer))
-    assert_select 'a', text: 'delete', count: 0
+    # 違うユーザーのプロフィールにアクセス (削除リンクがないことを確認) => admin userも削除リンクを表示させた
+    # get user_path(users(:archer))
+    # assert_select 'a', text: 'delete', count: 0
   end
 end

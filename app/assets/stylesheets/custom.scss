@@ -251,32 +251,53 @@ header {
   margin-bottom: 0;
 }
 
-.content:hover {
-  color: $hover-color;
-}
-
-span.place {
-    color: #484848;
-}
-
-.place:hover {
-  color: $hover-color;
-}
-
-span.user a {
-    color: #484848;
-}
-
-.user a {
+.scroll_item_ttl a {
+  color: #484848;
   text-decoration: none;
 }
 
-.user a:hover {
+.scroll_item_ttl a:hover {
+  color: $hover-color;
+}
+
+.post-content {
+  font-size: 30px;
+}
+
+.post-place {
+  color: #484848;
+  font-size: 15px;
+}
+
+a.post-place {
+  text-decoration: none;
+}
+
+.post-place:hover {
+  color: $hover-color;
+}
+
+.post-user {
+  color: #484848;
+  font-size: 15px;
+}
+
+a.post-user {
+  text-decoration: none;
+}
+
+.post-user:hover {
   color: $hover-color;
 }
 
 a.scroll_item_inr {
   text-decoration: none;
+}
+
+.timestamp {
+  color: $gray-light;
+  display: block;
+  margin-left: 60px;
 }
 
 // Oscar
