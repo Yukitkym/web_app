@@ -11,8 +11,38 @@
     </div>
   </div>
   <div>
-  	<h2>Photo一覧</h2>
-    <ul class="posts">
+  	<h2>Photravel</h2>
+    <div class="section_tools">
+      <%= link_to "Photravel一覧", posts_path, :class => "section_link hide_sp" %>
+    </div>
+    <div class="horizontal_scroll_wrap">
+      <ul class="scroll_lst">
+        <% @posts.each do |post| %>
+          <li class="scroll_item">
+            <a href="" class="scroll_item_inr">
+              <div class="grid">
+                <div class="scroll_item_thum">
+                  <figure class="effect-oscar">
+                    <%= image_tag post.picture.url, :alt => "", :width => "400", :height => "210", :class => "alignnone size-medium wp-image-986 photravel-picture" %>
+                  </figure>
+                </div>
+                <div class="scroll_item_info">
+                  <div class="scroll_item_ttl">
+                    <span class="content"><%= post.content %></span>
+                  </div>
+                  <span class="place"><%= post.place %></span>
+                  <%= link_to gravatar_for(post.user, size: 40), post.user %>
+                  <span class="user"><%= link_to post.user.name, post.user %></span>
+                  <br>
+                  <span class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
+                </div>
+              </div>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <!-- <ul class="posts">
       <% @posts.each do |post| %>
         <li>
           <%= link_to gravatar_for(post.user, size: 50), post.user %>
@@ -24,7 +54,7 @@
           </span>
         </li>
       <% end %>
-    </ul>
+    </ul> -->
   </div>
 
 

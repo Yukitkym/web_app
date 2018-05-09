@@ -22,5 +22,6 @@ users = User.order(:created_at).take(6)
 50.times do
   content = Faker::Lorem.characters(15)
   image_path = File.join(Rails.root, "test/fixtures/kitten.jpg")
-  users.each { |user| user.posts.create!(content: content, picture: File.new(image_path)) }
+  place = Faker::Address.state
+  users.each { |user| user.posts.create!(content: content, picture: File.new(image_path), place: place) }
 end

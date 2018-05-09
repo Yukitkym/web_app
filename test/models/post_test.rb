@@ -4,7 +4,7 @@ class PostTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
     image_path = File.join(Rails.root, "test/fixtures/kitten.jpg")
-    @post = @user.posts.build(content: "Lorem ipsum", picture: File.new(image_path))
+    @post = @user.posts.build(content: "Lorem ipsum", picture: File.new(image_path), place: "America")
   end
 
   test "should be valid" do

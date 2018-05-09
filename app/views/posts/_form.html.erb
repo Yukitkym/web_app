@@ -10,6 +10,11 @@
     <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
   </span>
 
+  <span class="place">
+    <h2>場所</h2>
+    <%= f.text_field :place, placeholder: "場所を入力してください" %>
+  </span>
+
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
 

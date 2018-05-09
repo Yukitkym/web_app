@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 15 }
   validates :picture, presence: true
+  validates :place, presence: true
   validate  :picture_size
 
    private
