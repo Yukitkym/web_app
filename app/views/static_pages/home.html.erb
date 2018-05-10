@@ -5,15 +5,15 @@
   	  	<div class="caption">
   	  	  <div class="lead_ja">あなたの行きたい場所がそこにある</div>
   	  	  <div class="lead_en">You want to travel there.</div>
-  	  	  <a href="/about/" class="btn_invert">CONCEPT</a>
+  	  	  <a href="/about" class="btn_invert">CONCEPT</a>
         </div>
       </div>
     </div>
   </div>
-  <div>
-  	<h2>Photravel</h2>
+  <div class="home_photravel">
+    <h2>Photravel</h2>
     <div class="section_tools">
-      <%= link_to "Photravel一覧", posts_path, :class => "section_link hide_sp" %>
+      <%= link_to "Photravel一覧", posts_path, :class => "section_link hide_sp photravel_link" %>
     </div>
     <div class="horizontal_scroll_wrap">
       <ul class="scroll_lst">
@@ -21,7 +21,23 @@
           <li class="scroll_item">
             <a href="" class="scroll_item_inr">
               <div class="grid">
-                <div class="hover-color">
+                <div class="scroll_item_thum">
+                  <figure class="effect-oscar">
+                    <%= image_tag post.picture.url, :alt => "", :width => "480", :height => "252", :class => "alignnone size-medium wp-image-986 photravel-picture" %>
+                  </figure>
+                </div>
+                <div class="scroll_item_info">
+                  <a href="<%= post_path(id: post.id) %>" class="hover-color-to-post">
+                    <span class="content">《<%= post.content %>》</span><span class="place"> |  <%= post.place %></span>
+                  </a>
+                  <div style="margin-left: 10px;">
+                    <%= link_to gravatar_for(post.user, size: 30), post.user %>
+                  <a href="<%= user_path(id: post.user_id) %>" class="hover-color-to-user">
+                    <span class="post-user"><%= post.user.name %></span>
+                  </a>
+                  </div>
+                  
+                <!-- <div class="hover-color">
                 <div class="scroll_item_thum">
                   <figure class="effect-oscar">
                     <%= image_tag post.picture.url, :alt => "", :width => "400", :height => "210", :class => "alignnone size-medium wp-image-986 photravel-picture" %>
@@ -37,7 +53,9 @@
                   <br>
                   <span class="user"><%= link_to post.user.name, post.user, class: "post-user" %></span>
                   <br>
-                  <!-- <span class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.</span> -->
+                  <span class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
+                </div> -->
+
                 </div>
               </div>
             </a>
