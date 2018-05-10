@@ -51,4 +51,17 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     log_in_as(@user, remember_me: '0')
     assert_empty cookies['remember_token']
   end
+
+  test "profile display after login" do
+    log_in_as(@user)
+    get user_path(@user)
+    assert_template 'users/show' 
+    assert_select 'a', text:'Edit user'
+    assert_select "a[href=?]", edit_user_path
+    assert_select 'a', text:'Log out'
+    assert_select "a[href=?]", logout_path
+    assert_select 'a', text:'Create post'
+    assert_select "a[href=?]", newpost_path
+    assert_select 'a', text:'delete', count:16
+  end
 end
