@@ -1,9 +1,12 @@
-<header class="navbar navbar-fixed-tops">
+<header id="fixed-header"> 
   <div class="container">
     <nav id="pc-nav">
       <div class="app-name">
-        <h1><%= link_to "Photravel", root_path, id: "logo" %></h1>
+        <!-- <h1><%= link_to "Photravel", root_path, id: "logo" %></h1> -->
+        <h1><%= link_to image_tag('logo.png', style: "width: 274px; height: 42px;"), root_path, id: "logo"%></h1>
       </div>
+      <!-- 411 63
+      137 21 -->
   	  <ul class="left-nav">
         <li><%= link_to "Home",   root_path %></li>
         <li><%= link_to "About",  about_path %></li>
@@ -18,4 +21,4 @@
       </ul>
     </nav>
   </div>
-</header> 
+</header>
