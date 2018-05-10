@@ -21,6 +21,7 @@
           <li class="scroll_item">
             <a href="" class="scroll_item_inr">
               <div class="grid">
+                <div class="hover-color">
                 <div class="scroll_item_thum">
                   <figure class="effect-oscar">
                     <%= image_tag post.picture.url, :alt => "", :width => "400", :height => "210", :class => "alignnone size-medium wp-image-986 photravel-picture" %>
@@ -31,11 +32,12 @@
                     <span class="content"><%= link_to post.content, post_path(id: post.id), class: "post-content" %></span>
                   </div>
                   <%= link_to gravatar_for(post.user, size: 40), post.user %>
-                  <span class="place"><%= link_to "place: " + post.place, post_path(id: post.id), class: "post-place" %></span>
+                  <span class="place"><%= link_to post.place, post_path(id: post.id), class: "post-place" %></span>
+                  </div>
                   <br>
-                  <span class="user"><%= link_to "user_name: " + post.user.name, post.user, class: "post-user" %></span>
+                  <span class="user"><%= link_to post.user.name, post.user, class: "post-user" %></span>
                   <br>
-                  <span class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
+                  <!-- <span class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.</span> -->
                 </div>
               </div>
             </a>

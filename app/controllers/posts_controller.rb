@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # before_action :correct_user,   only: :destroy
 
   def index
-    @posts = Post.paginate(page: params[:page])
+    @posts = Post.paginate(page: params[:page], :per_page => 15)
   end
 
   def new

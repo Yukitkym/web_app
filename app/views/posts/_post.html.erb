@@ -1,16 +1,24 @@
-<li id="post-<%= post.id %>">
-  <%= link_to gravatar_for(post.user, size: 40), post.user %>
-  <span class="user"><%= link_to post.user.name, post.user %></span>
-  <span class="content"><%= post.content %></span>
-  <span class="place"><%= post.place %></span><br>
-  <span class="picture"><%= image_tag post.picture.url %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(post.created_at) %> ago.
+<li id="post-<%= post.id %>" class="col-md-6">
+  <div class="grid">
+    <a href="<%= post_path(id: post.id) %>" class="hover-color-to-post">
+      <figure class="effect-oscar">
+        <%= image_tag post.picture.url, :alt => "", :width => "480", :height => "252", :class => "alignnone size-medium wp-image-986 photravel-picture" %>
+      </figure>
+      <br>
+      <span class="content"><%= post.content %></span>
+      <span class="place"><%= post.place %></span>
+    </a>
+    <%= link_to gravatar_for(post.user, size: 40), post.user %>
+    <br>
+    <a href="<%= user_path(id: post.user_id) %>" class="hover-color-to-user">
+      <span class="post-user"><%= post.user.name %></span>
+    </a>
+    <span class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
     <% if logged_in? %>
       <% if current_user?(post.user) || current_user.admin %>
         <%= link_to "delete", post, method: :delete,
                                        data: { confirm: "You sure?" } %>
       <% end %>
     <% end %>
-  </span>
+  </div>
 </li>

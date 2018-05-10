@@ -8,7 +8,6 @@ $hover-color: #910010;
 $orange: #d59533;
 
 body {
-  
 }
 
 section {
@@ -300,6 +299,30 @@ a.scroll_item_inr {
   margin-left: 60px;
 }
 
+.content {
+  color: #484848;
+}
+.place {
+  color: #484848;
+}
+.hover-color-to-post:hover {
+  text-decoration: none;
+}
+
+.hover-color-to-post:hover > .content,
+.hover-color-to-post:hover > .place {
+  color: $hover-color;
+}
+
+
+.hover-color-to-user:hover {
+  text-decoration: none;
+}
+
+.hover-color-to-user:hover > .post-user {
+  color: $hover-color;
+}
+
 // Oscar
 @font-face {
   font-weight: normal;
@@ -318,7 +341,6 @@ a.scroll_item_inr {
   padding: 1em 0 4em;
   max-width: 1000px;
   list-style: none;
-  text-align: center;
 }
 
 /* Common style */
@@ -459,6 +481,7 @@ figure.effect-oscar:hover .photravel-picture {
   opacity: 0.4;
 }
 
+
 /* footer */
 
 footer {
@@ -590,7 +613,6 @@ input {
   padding: 0;
   li {
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8;
   }
   .user {
     margin-top: 5em;
@@ -629,3 +651,30 @@ span.picture {
     border: 0;
   }
 }
+
+.page_visual {
+  position: relative;
+  height: 300px;
+  z-index: 2;
+  background-image: image-url('main.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  .filter {
+    display: table;
+    width: 100%;
+    p {
+      color: #fff;
+      font-size: 25px;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  }
+}
+
+
+
+
+
+
