@@ -1,20 +1,14 @@
 <%= form_for(@post, url: yield(:url)) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
-    <h2>タイトル</h2>
-    <%= f.text_field :content, placeholder: "タイトルを入力してください" %>
-  </div>
+  <%= f.label :title %>
+  <%= f.text_field :content, class: 'form-control' %>
 
-  <span class="picture">
-    <h2>写真</h2>
-    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
+  <%= f.label :picture %>
+  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: 'form-control' %>
 
-  <span class="place">
-    <h2>場所</h2>
-    <%= f.text_field :place, placeholder: "場所を入力してください" %>
-  </span>
-
+  <%= f.label :place %>
+  <%= f.text_field :place, class: 'form-control' %>
+  
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
 

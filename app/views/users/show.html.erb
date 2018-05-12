@@ -1,24 +1,26 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
+<div class="row" style="margin-top: 15px;">
+  <aside class="col-md-3">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
-        <%= @user.name %>
+        <%= @user.name %> 
       </h1>
     </section>
-    <% if logged_in? && current_user?(@user) %>
-      <%= link_to "Create post", newpost_path %>
-      <%= link_to "Edit user", edit_user_path %>
-      <%= link_to "Log out", logout_path, method: :delete %>
-    <% end %>
+    <section class="login_menu">
+      <% if logged_in? && current_user?(@user) %>
+        <%= link_to "Create post", newpost_path, :class => "user_btn" %>
+        <%= link_to "Edit user", edit_user_path, :class => "user_btn" %>
+        <%= link_to "Log out", logout_path, method: :delete, :class => "user_btn" %>
+      <% end %>
+    </section>
   </aside>
-   <div class="col-md-8">
+  <div class="user_posts col-md-9">
     <% if @user.posts.any? %>
       <h3>Posts (<%= @user.posts.count %>)</h3>
       <%= will_paginate @posts %>
       <ol class="posts">
-        <%= render @posts %>
+        <%= render @posts, class_name: "post_info_user_show" %>
       </ol>
       <%= will_paginate @posts %>
     <% end %>

@@ -19,7 +19,7 @@
       <ul class="scroll_lst">
         <% @posts.each do |post| %>
           <li class="scroll_item">
-            <a href="" class="scroll_item_inr">
+            <a href="<%= post_path(id: post.id) %>" class="scroll_item_inr">
               <div class="grid">
                 <div class="scroll_item_thum">
                   <figure class="effect-oscar">
@@ -36,26 +36,6 @@
                     <span class="post-user"><%= post.user.name %></span>
                   </a>
                   </div>
-                  
-                <!-- <div class="hover-color">
-                <div class="scroll_item_thum">
-                  <figure class="effect-oscar">
-                    <%= image_tag post.picture.url, :alt => "", :width => "400", :height => "210", :class => "alignnone size-medium wp-image-986 photravel-picture" %>
-                  </figure>
-                </div>
-                <div class="scroll_item_info">
-                  <div class="scroll_item_ttl">
-                    <span class="content"><%= link_to post.content, post_path(id: post.id), class: "post-content" %></span>
-                  </div>
-                  <%= link_to gravatar_for(post.user, size: 40), post.user %>
-                  <span class="place"><%= link_to post.place, post_path(id: post.id), class: "post-place" %></span>
-                  </div>
-                  <br>
-                  <span class="user"><%= link_to post.user.name, post.user, class: "post-user" %></span>
-                  <br>
-                  <span class="timestamp">Posted <%= time_ago_in_words(post.created_at) %> ago.</span>
-                </div> -->
-
                 </div>
               </div>
             </a>
@@ -63,21 +43,6 @@
         <% end %>
       </ul>
     </div>
-    <!-- <ul class="posts">
-      <% @posts.each do |post| %>
-        <li>
-          <%= link_to gravatar_for(post.user, size: 50), post.user %>
-          <span class="user"><%= link_to post.user.name, post.user %></span>
-          <span class="content"><%= post.content %></span>
-          <span class="picture"><%= image_tag post.picture.url %></span>
-          <span class="timestamp">
-            Posted <%= time_ago_in_words(post.created_at) %> ago.
-          </span>
-        </li>
-      <% end %>
-    </ul> -->
   </div>
-
-
 </main>
 

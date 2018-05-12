@@ -2,9 +2,9 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process resize_to_limit: [400, 400]
+  process resize_to_fit: [1280, 800]
 
-   if Rails.env.production?
+  if Rails.env.production?
     storage :fog
   else
     storage :file

@@ -1,18 +1,17 @@
 class PostsController < ApplicationController
   before_action :logged_in_user,   only: [:create, :destroy]
-  before_action :delete_post_user, only: :destroy
-  # before_action :correct_user,   only: :destroy
+  before_action :change_post_user, only: [:edit, :destroy]
 
   def index
     @posts = Post.paginate(page: params[:page], :per_page => 16)
   end
 
-  def new
-    @post = Post.new
-  end
-
   def show
     @post = Post.find(params[:id])
+  end
+
+  def new
+    @post = Post.new
   end
 
   def create
@@ -22,6 +21,20 @@ class PostsController < ApplicationController
       redirect_to root_url
     else
       render 'new'
+    end
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update_attributes(post_params)
+      flash[:success] = "Post updated"
+      redirect_to post_url
+    else
+      render 'edit'
     end
   end
 
@@ -47,8 +60,8 @@ class PostsController < ApplicationController
       redirect_to(root_url) unless current_user.admin?
     end
 
-    # postを削除出来るユーザーかどうか確認
-    def delete_post_user
+    # postを変更出来るユーザーかどうか確認
+    def change_post_user
       @post = Post.find(params[:id])
       @my_post = current_user.posts.find_by(id: params[:id])
       redirect_to(root_url) unless !@my_post.nil? || current_user.admin?
