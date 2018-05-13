@@ -712,6 +712,17 @@ span.picture {
   }
 }
 
+@media screen and (min-width:0px){
+  .post_info {
+    padding: 0 0 120px 0;
+  }
+}
+
+@media screen and (min-width:640px){
+  .post_info {
+  }
+}
+
 .adjust_post {
   margin-left: 10px;
 }
