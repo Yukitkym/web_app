@@ -1,10 +1,9 @@
 <% provide(:title, "About") %>
 <div class="page-visual-about"></div>
 <div class="description">
-  <h2>About</h2>
-  <h3>Photravelとは</h3>
-  <p>Photravel = Photo + Travel</p>
-  <p>Photravelは、旅行で撮ったおしゃれな写真の共有サービスです。</p>
+  <h2>Photravelとは</h2>
+  <p>Photravelは、旅行で撮ったおしゃれな写真の共有サービスです。<br>おしゃれな写真を見ながらどこに旅行に行くか決めたり、<br>自分が旅行先で撮った写真を共有したりすることが出来ます。<br>なかなか旅行先が決まらないときはおしゃれな写真を見ながら旅行先を決めてみてください。</p>
+
 </div>
 <div class="about_service">
   <div class="about_service_title">
@@ -26,7 +25,7 @@
   	  </div>
   	  <div class="service_item">
   	  	<a href="" class="service_title">Excite travel</a>
-  	  	<p>Photravelで行きたい場所を見つけたら、ぜひ実際に行ってみてください。あなたが旅行を楽しめることを祈っています。</p>
+  	  	<p>Photravelで行きたい場所を見つけたら、ぜひ実際に行ってみてください。あなたが旅行を楽しめることを願っています。</p>
   	  </div>
   	</div>
   </div>
@@ -54,7 +53,7 @@
                   <a href="<%= post_path(id: post.id) %>" class="hover-color-to-post">
                     <span class="content">《<%= post.content %>》</span><span class="place"> |  <%= post.place %></span>
                   </a>
-                  <div style="margin-left: 10px;">
+                  <div class="adjust_post">
                     <%= link_to gravatar_for(post.user, size: 30), post.user %>
                   <a href="<%= user_path(id: post.user_id) %>" class="hover-color-to-user">
                     <span class="post-user"><%= post.user.name %></span>

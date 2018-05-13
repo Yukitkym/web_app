@@ -1,13 +1,13 @@
 <% provide(:title, 'Post show') %>
 <div class="post_show_picture">
-  <%= image_tag @post.picture.url, :alt => "", :width => "640", :height => "400", :class => "alignnone size-medium wp-image-986 photravel-picture" %>
+  <%= image_tag @post.picture.url, :alt => "", :width => "800", :height => "500", :class => "alignnone size-medium wp-image-986 photravel-picture" %>
 </div>
-<div class="post_info">
+<div class="post_info post_show">
   <h1 class="post_title"><span class="content">《<%= @post.content %>》</span></h1>
   <span class="place">Place: <%= @post.place %></span>
-  <div style="margin-left: 10px;">
+  <div class="adjust_post">
     <div class="post_info_user">
-      <%= link_to gravatar_for(@post.user, size: 30), @post.user %>
+      <%= link_to gravatar_for(@post.user, size: 50), @post.user %>
       <a href="<%= user_path(id: @post.user_id) %>" class="hover-color-to-user">
         <span class="post-user"><%= @post.user.name %></span>
       </a>
@@ -17,7 +17,7 @@
       <% if logged_in? %>
         <% if current_user?(@post.user) || current_user.admin %>
           <%= link_to "delete", @post, method: :delete,
-                                         data: { confirm: "You sure?" },
+                                         data: { confirm: "本当に削除しますか？" },
                                         :class => "delete_button" %>
           <%= link_to "edit", edit_post_path, :class => "edit_button" %>
         <% end %>

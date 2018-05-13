@@ -30,7 +30,7 @@
                   <a href="<%= post_path(id: post.id) %>" class="hover-color-to-post">
                     <span class="content">《<%= post.content %>》</span><span class="place"> |  <%= post.place %></span>
                   </a>
-                  <div style="margin-left: 10px;">
+                  <div class="adjust_post">
                     <%= link_to gravatar_for(post.user, size: 30), post.user %>
                   <a href="<%= user_path(id: post.user_id) %>" class="hover-color-to-user">
                     <span class="post-user"><%= post.user.name %></span>

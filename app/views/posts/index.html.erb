@@ -1,11 +1,10 @@
 <% provide(:title, 'Photravel一覧') %>
-<h1>Photravel一覧</h1>
 <section class="page-visual-posts">
   <div class="filter">
   	<p>きっとそこには素晴らしい景色がある</p>
   </div>
 </section>
-
+<h1 class="posts-title">Photravel一覧</h1>
 <%= will_paginate %>
 <ul class="posts">
   <%= render @posts, class_name: "post_info_posts" %>

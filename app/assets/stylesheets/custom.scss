@@ -124,7 +124,7 @@ header {
 
 .cover {
   background-image: image-url('about-middle.jpg');
-  height: calc(100vh - 100px);
+  height: 625px;
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -141,7 +141,7 @@ header {
 .lead_ja {
   color: #fff;
   text-align: center;
-  font-size: 36px;
+  font-size: 33px;
   letter-spacing: 12px;
   padding-bottom: 10px;
   font-weight: 600;
@@ -645,6 +645,10 @@ input {
 
 /* posts */
 
+.posts-title {
+  margin: 40px 0px 18px 10px;
+}
+
 .posts {
   list-style: none;
   padding: 0;
@@ -708,6 +712,10 @@ span.picture {
   }
 }
 
+.adjust_post {
+  margin-left: 10px;
+}
+
 .content {
   font-size: 20px;
   color: #d59533;
@@ -751,7 +759,6 @@ span.picture {
   }
 }
 
-
 /* about */
 
 .page-visual-about {
@@ -766,6 +773,15 @@ span.picture {
   text-align: center;
   padding: 75px 0;
   border-bottom: 1px solid #ddd;
+  h2 {
+    padding-bottom: 40px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 30px;
+    width: 60%;
+    margin: 0px auto;
+  }
 }
 
 .about_service_title {
@@ -945,5 +961,107 @@ span.picture {
   transition: all .3s;
 }
 
-.user_posts {
+/* contact */
+
+.contact {
+  text-align: center;
+  h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 36px;
+    letter-spacing: 4px;
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-family: Arial;
+    width: 92%;
+  }
+  a {
+    color: $black;
+    text-decoration: none;
+    &:hover {
+      color: $hover-color;
+    }
+  }
+}
+
+.contact-visual {
+  height: 300px;
+  background-image: image-url('contact.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 30px;
+  .filter .caption {
+    width: 100%;
+  }
+}
+
+/* post show */
+
+.post_show_picture {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.post_show {
+  text-align: center;
+  padding-bottom: 50px;
+  h1 {
+    .content {
+      font-size: 30px;
+    }
+  }
+  .place {
+    font-size: 25px;
+  }
+  .adjust_post{
+    .post_info_user {
+      text-align: left;
+      width: 70%;
+      margin: 0 auto;
+      .hover-color-to-user {
+        .post-user {
+          color: $black;
+          font-size: 20px;
+          line-height: 50px;
+
+        }
+      }
+    }
+    .post_info_posts {
+      text-align: center;
+      width: 70%;
+      margin: 0 auto;
+      float: none;
+      .timestamp {
+        font-size: 17px;
+      }
+      .delete_button {
+        font-size: 20px;
+      }
+      .edit_button {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+/* post edit */
+
+.edit_form {
+  margin-bottom: 50px;
+}
+
+.post_edit_picture {
+  text-align: center;
+}
+
+.post_edit {
+  width:70%;
+  margin: 0 auto;
+  .adjust_post {
+    .post_info_posts {
+      margin: 0;
+    }
+  }
 }

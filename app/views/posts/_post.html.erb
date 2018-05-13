@@ -10,7 +10,7 @@
         <a href="<%= post_path(id: post.id) %>" class="hover-color-to-post">
           <span class="content">《<%= post.content %>》</span><span class="place"> | <%= post.place %></span>
         </a>
-        <div style="margin-left: 10px;">
+        <div class="adjust_post">
           <div class="post_info_user">
             <%= link_to gravatar_for(post.user, size: 30), post.user %>
             <a href="<%= user_path(id: post.user_id) %>" class="hover-color-to-user">
@@ -22,7 +22,7 @@
             <% if logged_in? %>
               <% if current_user?(post.user) || current_user.admin %>
                 <%= link_to "delete", post, method: :delete,
-                                             data: { confirm: "You sure?" },
+                                             data: { confirm: "本当に削除しますか？" },
                                             :class => "delete_button" %>
                 <%= link_to "edit", edit_post_path(id: post.id), :class => "edit_button" %>
               <% end %>

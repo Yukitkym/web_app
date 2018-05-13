@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   def create
   	@post = current_user.posts.build(post_params)
     if @post.save
-      flash[:success] = "Post created!"
+      flash[:success] = "投稿が作成されました"
       redirect_to root_url
     else
       render 'new'
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update_attributes(post_params)
-      flash[:success] = "Post updated"
+      flash[:success] = "投稿が更新されました"
       redirect_to post_url
     else
       render 'edit'
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    flash[:success] = "Post deleted"
+    flash[:success] = "投稿が削除されました"
     redirect_to request.referrer || root_url
   end
 

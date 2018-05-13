@@ -10,13 +10,13 @@ class SessionsController < ApplicationController
         params[:session][:remember_me] == '1' ? remember(@user) : forget(@user) # チェックボックスがオンのときにユーザーを記憶し、オフのときには記憶しないようにする
         redirect_back_or @user
       else
-        message  = "Account not activated. "
-        message += "Check your email for the activation link."
+        message  = "アカウントがアクティブ状態ではありません。"
+        message += "メールアドレスをチェックしてアクティブ状態にしてください。"
         flash[:warning] = message
         redirect_to root_url
       end
     else
-      flash.now[:danger] = 'メールアドレスかパスワードが正しくありません。'
+      flash.now[:danger] = 'メールアドレスかパスワードが正しくありません'
       render 'new'
     end
   end
